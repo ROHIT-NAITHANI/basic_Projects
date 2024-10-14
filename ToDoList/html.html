@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <div class="first">
+        <form action="" autocomplete="off" >
+        <label for="taxt" ></label>
+        <input style="float: left;"  id="valu" type="text" name="task" value="" >
+        <input type="submit" id="sub">
+          </form>
+         <div >
+         <ul id = 'list' style="list-style-type:none" >
+         </ul>
+         </div>
+
+    </div>
+    
+
+</body>
+<script>
+    let submit = document.getElementById('sub')
+    let ul = document.getElementById('list')
+    let input = document.getElementById("valu")
+    let button = document.querySelectorAll('.delet')
+    let lastvalue = "";
+    sub.addEventListener('click', add, false)
+    
+
+    function add (event) {
+        event.preventDefault()
+        let task = input.value;
+        if (input.value.length === 0 ) {              
+        } else {
+            if (lastvalue === `${input.value}`) {             
+            } else {  
+                let taskname = document.createElement('li')
+              taskname.innerHTML = (`<input class = "checkbox" type="checkbox"> ` + task + ` <button id = '${input.value}' value = '${input.value} ' type="button" onclick="deleteTask('${task}')" >Del</button>   `);
+               taskname.id = `${input.value}`;
+               ul.appendChild(taskname)
+               input.value = ' '
+               lastvalue = task;   
+            }                   
+        }        
+    }    
+    function deleteTask(TaskId) {
+        let del = document.getElementById(TaskId)
+    if(del){
+       del.remove()
+    }               
+    }
+
+</script>
+</html>
