@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<body>
+
+    <div class = 'bac'>
+        <form action=""></form>
+        <label for="password" >password</label>
+        <input type="password" id="pass" placeholder="password" value=""><br>
+        <label for="password" > conform password</label>
+        <input type="password" id="conpass" placeholder="Conferm password" value=""><br>
+        <input style="width: 18%;" onclick="valid()" id="sub" type="submit">
+        <p>one capital letter</p>
+        <p>one number </p>
+        <p>one small letter should be in password</p>
+
+        <div id = "warning">
+
+        </div>
+    </div>
+    
+</body>
+<style>
+.bac
+{
+  background-color: grey;
+  padding: 10px;
+  
+}
+</style>
+<script>
+
+    let ConPass = 'hello';
+     let pass = document.getElementById('pass')
+     let conpass = document.getElementById('conpass')
+     submit = document.getElementById('sub')
+
+     function valid() {
+        console.log(pass.value);
+        console.log((pass.value).length);
+        
+     if( !/[0-9]/.test(pass.value)  || !/[A-Z]/.test(pass.value) || !/[a-z]/.test(pass.value) || (pass.value).length )
+     {   
+       pass.style.borderColor = "red"
+       
+     }
+     else{
+       pass.style.borderColor = "green"
+       let ConPass = pass.value;
+       
+       if (conpass.value === ConPass ) {
+        conpass.style.borderColor = "green"
+       }
+       else
+       {
+        conpass.style.borderColor = "red"
+       }
+     }
+        
+     }
+    
+
+
+
+
+
+
+ 
+
+
+</script>
+</html>
